@@ -2,13 +2,16 @@
 
 {% block content %}
    <h1>Welcome to Nudge</h1>
-   <h4>It may not look like much now, but this is the beginning of
-       the longevity API!</h4>
+   <h4>Later, Nudge will be a glucose monitoring app, but for now it is
+       just a humble blog 😌</h4>
     {% for post in posts %}
-        <a href="#">
+        <a href="{{ url_for('post', post_id=post['id']) }}">
             <h2>{{ post['title'] }}</h2>
         </a>
         <span class="badge badge-primary">{{ post['created'] }}</span>
+        <a href="{{ url_for('edit', id=post['id']) }}">
+            <span class="badge badge-warning">Edit</span>
+        </a>
         <hr>
     {% endfor %}
 {% endblock %}
